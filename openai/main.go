@@ -26,5 +26,19 @@ func CompleteText(input string, shell string) (string, error) {
 		return "", err
 	}
 
-	return strings.TrimSpace(strings.Split(resp.Choices[0].Text, "</code>")[0]), nil
+	return cleanupResponse(resp.Choices[0].Text), nil
+}
+
+func cleanupResponse(response string) string {
+	// Everything before </code>
+	response = strings.Split(response, "</code>")[0]
+
+	// Everything before first comment
+	response = strings.Split(response, "\n#")[0]
+
+	// Everything before first set of two newlines (usually more instruction comes after)
+	response = strings.Split(response, "\n\n")[0]
+
+	// Trim whitespace
+	return strings.TrimSpace(response)
 }
