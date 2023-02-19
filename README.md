@@ -31,8 +31,11 @@ aish find all files ending in .txt containing 'foo' recursively
 
 ## TODO
 
+- Make more accurate
+- Remember previous prompts?
+- Change usage to `aish -c <command>`, with just `aish` opening a new shell entirely
 - Teach usage when running aish without additional args
 - Use charm.sh libraries to prompt you if the completed text is correct
 - contextually aware of you system, file system, etc
 - Provide mechanism for giving aish cli documentation, so it can generate advanced scripts w/ model fine tuning, etc.
-- Better readme documentation
+- Better documentation
